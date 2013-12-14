@@ -1,0 +1,13 @@
+- file ||= file
+.section
+  h2 
+    | Generate!
+    form method="post"
+      input name='encodeme'
+      input type='submit'
+ 
+.section
+  - if file
+    h2 
+      | generated #{file}
+    img src=file
