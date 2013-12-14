@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'slim'
+require 'fileutils'
 
 require 'qr4r'
 
@@ -11,6 +12,10 @@ class TheApp < Sinatra::Base
   set :qrdir, File.join(settings.public_folder, 'generated')
   set :port, 5678
   APP_ROOT = root
+
+  if !File.exists?(settings.qrdir)
+    FileUtils::mkdir_p settings.qrdir
+  end
 
   get '/' do
     slim :index
