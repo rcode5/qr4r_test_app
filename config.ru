@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'slim'
 
 disable :run, :reload
 
