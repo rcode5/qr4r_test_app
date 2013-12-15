@@ -1,0 +1,26 @@
+doctype html
+head
+  meta charset="utf-8"
+  meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+  title= "Testing Qr4r gem"
+  meta name="description" content=""
+  meta name="author" content=""
+  meta name="keywords" content=""
+  meta name="viewport" Content="width=device-width, initial-scale=1.0"
+  style type="text/css"
+    | body { font-family: helvetica; }
+    | input, textarea {
+    |  border: 1px solid #171a24;
+    |  padding:10px;
+    |  font-size:18px;
+    |  color: #1b1824;
+    |  -moz-border-radius: 10px;
+    |  -webkit-border-radius: 10px;
+    |  border-radius: 10px;
+    |}
+    | input[name=encodeme] { width: 500px; }
+    
+body
+  #container
+    == yield
+

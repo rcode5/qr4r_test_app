@@ -23,8 +23,8 @@ class TheApp < Sinatra::Base
 
   post '/' do
     link = params['encodeme']
-    file = Tempfile.new(['qrcode', '.png'], settings.qrdir, 'w')
-    Qr4r::encode link, file.path, pixel_size: 20, border: 40
+    file = Tempfile.new(['qrcode', '.gif'], settings.qrdir, 'w')
+    Qr4r::encode link, file.path, pixel_size: 20
     
     slim :index, :locals => {:file => asset_path(file.path) }
   end
