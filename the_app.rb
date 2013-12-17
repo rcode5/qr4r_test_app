@@ -1,12 +1,19 @@
-require 'sinatra'
+require 'rubygems'
+require 'bundler'
+Bundler.require :default
+
+require 'sinatra/base'
+
 require 'slim'
 require 'fileutils'
 
 require 'qr4r'
 
 class TheApp < Sinatra::Base
+
   set :environment, :production
   set :logging, true
+  set :static, true
   set :root, Dir.pwd
   set :public_folder, File.join(settings.root, 'public')
   set :qrdir, File.join(settings.public_folder, 'generated')
@@ -23,10 +30,21 @@ class TheApp < Sinatra::Base
 
   post '/' do
     link = params['encodeme']
+    border = params['border']
+    pixel_size = params['pixel_size'] || 20
+
     file = Tempfile.new(['qrcode', '.gif'], settings.qrdir, 'w')
-    Qr4r::encode link, file.path, pixel_size: 20
     
-    slim :index, :locals => {:file => asset_path(file.path) }
+    encode_opts = {
+      pixel_size: pixel_size,
+      border: border
+    }
+    Qr4r::encode link, file.path, encode_opts
+    slim :index, :locals => {
+      file: asset_path(file.path),
+      link: link
+    }.merge(encode_opts)
+
   end
 
   run! if app_file == $0

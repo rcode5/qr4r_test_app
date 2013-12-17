@@ -1,13 +1,12 @@
+- link ||= nil
 - file ||= file
+- pixel_size ||= 20
+- border ||= nil
 .section
-  h2 
-    | Generate!
-    form method="post"
-      input name="encodeme" type="text" placeholder="enter a link here"
-      input type="submit"
+    == slim :form, :locals => { file: file, border: border, pixel_size: pixel_size, link: link}
  
-.section
+.section.results
   - if file
     h2 
-      | generated #{file}
+      a href=file #{file}
     img src=file

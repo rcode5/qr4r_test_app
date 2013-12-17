@@ -7,20 +7,20 @@ head
   meta name="author" content=""
   meta name="keywords" content=""
   meta name="viewport" Content="width=device-width, initial-scale=1.0"
-  style type="text/css"
-    | body { font-family: helvetica; }
-    | input, textarea {
-    |  border: 1px solid #171a24;
-    |  padding:10px;
-    |  font-size:18px;
-    |  color: #1b1824;
-    |  -moz-border-radius: 10px;
-    |  -webkit-border-radius: 10px;
-    |  border-radius: 10px;
-    |}
-    | input[name=encodeme] { width: 500px; }
-    
-body
-  #container
-    == yield
 
+  link rel="stylesheet" type="text/css" href="/stylesheets/jquery.slider.min.css"
+  link rel="stylesheet" type="text/css" href="/stylesheets/qr4r.css"
+  link rel="icon" type="image/png" href="/images/favicon.png"
+
+  body
+    a href="https://github.com/rcode5/qr4r_test_app"
+      img.fork-me src="/images/fork_me_on_github.png" alt="Fork me on GitHub"
+    header.header
+      img src="/images/logo.png"
+    #container
+      == yield
+    footer.footer
+
+  - %w(//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js //cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js /javascripts/jquery.slider.min.js /javascripts/qr4r.js).each do |js|
+    script type="text/javascript" src=js
+    

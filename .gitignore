@@ -9,4 +9,4 @@ tmp/**/*
 *.DS_Store
 .idea
 .project
-public
+public/generated
