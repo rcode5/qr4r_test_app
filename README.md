@@ -8,4 +8,7 @@
     
 Open a browser to http://localhost:9292
 
+# dependent gems (that i maintain)
 
+* https://github.com/rcode5/qr4r
+* https://github.com/rcode5/mojo_magick
