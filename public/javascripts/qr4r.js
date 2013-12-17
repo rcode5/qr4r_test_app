@@ -6,6 +6,7 @@ $(function() {
     round: 0,
     limits: false
   });
+
   $('#pixel-size-slider').slider({
     from:0,
     to: 40,

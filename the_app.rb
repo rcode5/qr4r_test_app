@@ -33,7 +33,7 @@ class TheApp < Sinatra::Base
     border = params['border']
     pixel_size = params['pixel_size'] || 20
 
-    file = Tempfile.new(['qrcode', '.gif'], settings.qrdir, 'w')
+    file = Tempfile.new(['qrcode', '.png'], settings.qrdir, 'w')
     
     encode_opts = {
       pixel_size: pixel_size,
