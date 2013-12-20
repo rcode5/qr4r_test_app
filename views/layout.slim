@@ -20,6 +20,10 @@ head
     #container
       == yield
     footer.footer
+      a.link href="http://github.com/rcode5/qr4r" powered by qr4r
+      a.link href="http://www.rcode5.com" site by rcode 5 
+      a.link href="http://www.heroku.com" hosted by heroku
+      
 
   - %w(//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js //cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js /javascripts/jquery.slider.min.js /javascripts/qr4r.js).each do |js|
     script type="text/javascript" src=js
